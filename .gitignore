@@ -1,0 +1,67 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Secrets and API keys
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!.env.sample
+!.env.template
+!*.env.example
+!*.env.sample
+!*.env.template
+*.key
+*.pem
+*.p8
+*.p12
+*.pfx
+*.secret
+*.secrets
+*.token
+.npmrc
+secrets/
+secrets.*
+credentials.*
+*credentials*.json
+client_secret*.json
+*client_secret*.json
+service-account*.json
+*service-account*.json
+token.json
+tokens.json
+
+# Local files that may contain API keys
+backend/recommendation_algorithm/test.ipynb
+
+node_modules
+dist
+dist-ssr
+*.local
+.venv/
+__pycache__/
+.pytest_cache/
+
+.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+scraper/billboard_scraper.py
+scraper/similar_songs_scraper.py
+backend/"recommendation algorithm"
+docs/

@@ -1,0 +1,322 @@
+.page-shell {
+  height: 100vh;
+  background: linear-gradient(195deg, #3571ba, #6d98cf, #d3e9f6);
+  background-size: 200% 200%;
+  animation: bg-grad 15s ease infinite;
+  font-family: "SF Pro Text", sans-serif;
+  color: #03045e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes bg-grad {
+  0%   { background-position: 0% 51%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 51%; }
+}
+
+.page-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 240px) 1fr;
+  height: 100vh;
+  width: 100%;
+}
+
+.page-shell:has(.page-layout) {
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.activity-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 24px;
+  overflow-y: auto;
+}
+
+.activity-page {
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 24px;
+  box-sizing: border-box;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.activity-card {
+  width: min(800px, calc(100vw - 80px));
+  max-width: 100%;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.activity-card h1 {
+  margin: 0 0 24px;
+  font-size: 1.75rem;
+  color: #1a1a2e;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ── Controls bar ──────────────────────────────────────────────── */
+
+.activity-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.activity-select {
+  padding: 8px 14px;
+  border: 1px solid rgba(144, 224, 239, 0.65);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #1a1a2e;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.activity-select:focus {
+  border-color: #90e0ef;
+}
+
+/* ── Song list ─────────────────────────────────────────────────── */
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.activity-row:hover {
+  background: rgba(255, 255, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.activity-thumb {
+  width: 96px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.activity-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.activity-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.35;
+}
+
+.activity-artist {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.activity-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activity-genre {
+  font-size: 0.7rem;
+  background: rgba(144, 224, 239, 0.4);
+  color: #03045e;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.activity-date {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* ── Like / Dislike icon ───────────────────────────────────────── */
+
+.activity-reaction {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  padding: 4px 12px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.activity-reaction.liked {
+  background: rgba(29, 185, 84, 0.15);
+  border: 1px solid rgba(29, 185, 84, 0.35);
+}
+
+.activity-reaction.disliked {
+  background: rgba(231, 76, 60, 0.15);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+}
+
+.activity-reaction.neutral {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+/* ── Pagination ────────────────────────────────────────────────── */
+
+.activity-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.activity-page-btn {
+  padding: 8px 20px;
+  border: 1px solid rgba(144, 224, 239, 0.65);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #03045e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.activity-page-btn:hover:not(:disabled) {
+  background: rgba(202, 240, 248, 0.95);
+  border-color: #90e0ef;
+}
+
+.activity-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.activity-page-indicator {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 600;
+}
+
+/* ── Empty & loading states ────────────────────────────────────── */
+
+.activity-empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.activity-loading {
+  text-align: center;
+  padding: 48px 16px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ── Auth error (matches Playback pattern with glass style) ────── */
+
+.activity-auth-error {
+  text-align: center;
+  width: min(520px, calc(100vw - 80px));
+  max-width: 100%;
+  padding: 60px 24px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.activity-auth-error h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: #1a1a2e;
+}
+
+.activity-auth-error p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.activity-auth-link {
+  display: inline-block;
+  background: #90e0ef;
+  color: #03045e;
+  padding: 10px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.activity-auth-link:hover {
+  background: #caf0f8;
+}
+
+@media (max-width: 640px) {
+  .activity-page {
+    max-width: calc(100vw - 16px);
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .activity-card,
+  .activity-auth-error {
+    width: 100%;
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,14 @@
+librosa
+numpy
+python-dotenv
+qdrant-client
+requests
+torch
+transformers
+yt-dlp
+google-api-python-client
+google-auth
+google-auth-oauthlib
+fastapi
+uvicorn
+dotenv

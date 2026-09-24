@@ -1,0 +1,104 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: linear-gradient(195deg, #3571ba, #6d98cf, #d3e9f6);
+  background-size: 200% 200%;
+  animation: bg-grad 15s ease infinite;
+  font-family: "SF Pro Text", sans-serif;
+  color: #fff;
+}
+
+@keyframes bg-grad {
+  0%   { background-position: 0% 51%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 51%; }
+}
+
+.landing-page .logo {
+  height: 140px;
+  width: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 24px rgba(3, 4, 94, 0.25));
+  margin-bottom: 8px;
+}
+
+.landing-page h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #fff;
+}
+
+.landing-page h2 {
+  margin: 0 0 32px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.orbit-scene {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit-avatar-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  background: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: orbit-single 22s linear infinite;
+  animation-delay: calc(-22s / 7 * var(--i));
+}
+
+@keyframes orbit-single {
+  from { transform: rotate(0deg)   translateY(-275px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateY(-275px) rotate(-360deg); }
+}
+
+.orbit-avatar {
+  width: 80px;
+  height: 80px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.landing-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.landing-page button {
+  padding: 14px 36px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.landing-page button:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.7);
+}

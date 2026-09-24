@@ -1,0 +1,101 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #a8cfe8;
+  color: #03045e;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-header__logo {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+}
+
+.app-header__title {
+  color: #03045e;
+  text-decoration: none;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.app-header__menu {
+  position: relative;
+}
+
+.app-header__avatar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 2px solid rgba(3, 4, 94, 0.28);
+  border-radius: 999px;
+  background: transparent;
+}
+
+.app-header__avatar-button:hover {
+  border-color: #03045e;
+}
+
+.app-header__avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  display: block;
+}
+
+.app-header__dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(2, 62, 138, 0.2);
+}
+
+.app-header__dropdown-item {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #1f2937;
+  text-align: left;
+  padding: 10px 12px;
+}
+
+.app-header__dropdown-item:hover {
+  background: #f1f5f9;
+  border-color: transparent;
+}
+
+.app-header__dropdown-item--danger {
+  color: #c1121f;
+}
+
+.app-header__dropdown-item--danger:hover {
+  background: #fff1f2;
+}
+
+.app-header__menu-spacer {
+  width: 46px;
+  height: 46px;
+
+}

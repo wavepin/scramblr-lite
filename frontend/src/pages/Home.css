@@ -1,0 +1,254 @@
+/* ── Shell + gradient ─────────────────────────────────────────────── */
+
+.home-shell {
+  height: 100vh;
+  background: linear-gradient(195deg, #3571ba, #6d98cf, #d3e9f6);
+  background-size: 200% 200%;
+  animation: bg-grad 15s ease infinite;
+  font-family: "SF Pro Text", sans-serif;
+  color: #03045e;
+}
+
+@keyframes bg-grad {
+  0%   { background-position: 0% 51%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 51%; }
+}
+
+/* ── Layout ───────────────────────────────────────────────────────── */
+
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 240px) 1fr;
+  height: 100%;
+}
+
+/* ── Sidebar (shared styles with Playback) ────────────────────────── */
+
+.nav-sidebar {
+  background-color: #2e3849;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 24px;
+  grid-template-rows: auto 1fr auto;
+}
+
+.nav-sidebar .app-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-sidebar .app-header__logo {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+}
+
+.nav-sidebar .app-header__title {
+  color: #c3c4e7;
+  text-decoration: none;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.nav-sidebar .navs {
+  margin-top: 0.2rem;
+  overflow-y: auto;
+}
+
+.nav-link div {
+  display: flex;
+  padding: 12px;
+  padding-left: 16px;
+  width: 100%;
+  color: #c3c4e7;
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+  align-items: center;
+}
+
+.nav-link div img {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.nav-link div:hover {
+  background-color: #1a1a2e;
+}
+
+.recently-played-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.recently-played-toggle div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: #c3c4e7;
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+}
+
+.recently-played-toggle div:hover {
+  background-color: #1a1a2e;
+}
+
+.chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chevron--open {
+  transform: rotate(180deg);
+}
+
+.recently-played-dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 4px 8px 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recently-played-empty {
+  font-size: 0.82rem;
+  color: #6b7f99;
+  font-style: italic;
+  padding: 6px 8px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 16px;
+  min-width: 0;
+}
+
+.profile-email {
+  flex: 1;
+  font-size: 0.82rem;
+  color: #8899aa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.logout-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease, background 0.15s ease;
+  opacity: 0.75;
+}
+
+.logout-btn:hover {
+  opacity: 1;
+  background: rgba(231, 76, 60, 0.15);
+}
+
+.logout-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* ── Main content area ────────────────────────────────────────────── */
+
+.home-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ── Orbit scene ──────────────────────────────────────────────────── */
+
+.orbit-scene {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Each avatar animates independently — staggered by negative delay so they
+   start evenly spaced. Counter-rotating the inner transform keeps them upright. */
+.orbit-avatar-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -40px 0 0 -40px;
+  background: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: orbit-single 22s linear infinite;
+  animation-delay: calc(-22s / 7 * var(--i));
+}
+
+@keyframes orbit-single {
+  from { transform: rotate(0deg)   translateY(-265px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateY(-265px) rotate(-360deg); }
+}
+
+.orbit-avatar {
+  width: 100px;
+  height: 100px;
+  display: block;
+  image-rendering: pixelated;
+  background: transparent;
+}
+
+/* ── Center content ───────────────────────────────────────────────── */
+
+.home-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.home-logo {
+  width: 240px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 24px rgba(3, 4, 94, 0.3));
+}
+
+.home-welcome {
+  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(3, 4, 94, 0.25);
+  line-height: 1.1;
+}
