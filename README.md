@@ -1,5 +1,8 @@
 # Scramblr
 
+> [!NOTE]
+> **Why this repository has almost no commit history:** Scramblr was built as a team project in a separate repository that remains private. This repository is a public copy of the project's final state, taken from that repository's latest commit, so the full development history isn't included here. See [Credits](#credits) for everyone who contributed.
+
 Scramblr is a music discovery application that builds a path from familiar music toward a different destination. A listener supplies favorite songs, artists, and genres, chooses a discovery pace, and shapes later recommendations through likes and dislikes. Playback, listening history, and saved start-to-end playlists share the same account.
 
 The recommendation engine combines CLAP audio embeddings, Qdrant vector retrieval, and explicit scoring for continuity, preferences, and avoidance. React handles the listening experience; Express coordinates metadata and recommendation requests; a persistent Python service runs model inference.
